@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EtiketiUstunde.Web.Models.DivisionModel>
+
+<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Her Sey <b class="caret"></b></a>
+<ul class="dropdown-menu">
+    <div class="categoryMenu">
+        @{
+            if (Model != null)
+            {
+                foreach (var division in Model.OrderByDescending(x => x.PriorityScore))
+                {
+            <ul>
+                <li>@division.Name<hr>
+                </li>
+                @{
+                    var categories = division.Categories.OrderByDescending(x => x.CategoryGroup.PriorityScore);
+                    var categoriesGrouped = categories.OrderByDescending(x => x.CategoryGroup.PriorityScore).GroupBy(x => x.CategoryGroupId);
+                    foreach (var categoryGroup in categoriesGrouped)
+                    {
+                        var count = categoryGroup.Count();
+                        var index = 1;
+
+                        foreach (var category in categoryGroup.OrderByDescending(x => x.PriorityScore))
+                        {
+                    <li><a href="#">@category.Name</a>
+                        @{
+                            if (count == index)
+                            {
+                            <hr />
+                            }
+                        }
+                    </li>
+                            index++;
+                        }
+                    }
+                }
+            </ul>
+                }
+            }
+        }
+    </div>
+</ul>

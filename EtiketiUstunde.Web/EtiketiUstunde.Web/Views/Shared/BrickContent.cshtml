@@ -1,0 +1,22 @@
+﻿@model EtiketiUstunde.Web.Models.BrickModel
+
+<div class="box col1 masonry-brick">
+    <a href="#" class="darkgrey price">
+        <img alt="@Model.Name" src="@Model.ImageUrl" width="@Model.ImageWidth" height="@Model.ImageHeight">
+        <span class="bor3tr bor3br minShade">$@Model.Price.ToString("0,0.00")</span>
+        <div class="black-bl">&nbsp;</div>
+    </a>
+    <p class="summary tcenter">
+        <span>@Model.Name</span>
+        <span><a href="#">@Model.Owner</a></span>
+        <span><time pubdate="" datetime="2012-07-26T18:41:49Z">@Model.DaysSincePosted gün önce ekledi...</time></span>
+    </p>
+    @{
+        if (@Model.LikeCount > 0)
+        {
+            <em class="clearfix">
+                @Model.LikeCount <div class="favorite_add"></div>
+            </em>
+        }
+    }
+</div>

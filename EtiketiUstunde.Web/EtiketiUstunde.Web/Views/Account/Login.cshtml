@@ -1,0 +1,58 @@
+﻿@using EtiketiUstunde.Web.Models
+@model EtiketiUstunde.Web.Models.LoginModel
+
+@section Header
+{
+    <script src="@Url.Content("~/Scripts/etiketiustunde.login.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('h1').on('click', function () {
+                document.location.href = '@Url.Action("Index", "Home")';
+            });
+
+            $('.register_button').on('click', function() {
+                document.location.href = '@Url.Action("Register", "Account")';
+            });
+        });
+    </script>
+}
+
+@section Body
+{
+    <div class="row">
+        <div class="span3 offset7">
+            <h1 class="clickable">Etiketi Ustunde</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span7 offset5">
+            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+        </div>
+        <div class="login_separator span7 offset5">
+            &nbsp;
+        </div>
+        <div class="span7 offset5">
+            <div class="span7 manual_login-section">
+            
+                @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))  
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.TextBoxFor(m => m.UserName, new {@placeholder = "kullanici adi"})
+                    @Html.PasswordFor(m => m.Password, new {@placeholder = "sifre"})
+
+                    <input type="submit" class="btn-success btn-large login_button_manual" value="Giris Yap" />
+                    <span>
+                        Hesabiniz yok mu? @Html.ActionLink("Kayit olabilirsiniz.", "Register")
+                    </span>
+                }
+            
+            </div>
+            <div class="span7 login-validation-section">
+                @Html.ValidationSummary(true)    
+            </div>
+        </div>
+    </div>
+
+}
+

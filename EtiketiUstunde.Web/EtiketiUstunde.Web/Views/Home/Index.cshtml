@@ -1,0 +1,64 @@
+﻿@model EtiketiUstunde.Web.Models.HomeModel
+
+@using EtiketiUstunde.Web.Models
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+@section Header
+{
+    <script type="text/javascript">
+        //var $container = $('#container');
+        //$container.imagesLoaded(function () {
+        //    $container.masonry({
+        //        itemSelector: '.box',
+        //        columnWidth: 240
+        //    });
+        //});
+
+        $(function () {
+            $('#container').masonry({
+                // options
+                itemSelector: '.box',
+                columnWidth: 230,
+                isAnimated: true,
+                animationOptions: {
+                    duration: 250,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+        });
+    </script>
+}
+
+@section NavigationBar
+{
+    @{
+        Html.RenderPartial("NavigationBar", (NavigationBarModel)ViewBag.NavigationBarModel);
+    }
+}
+@section Body
+{
+    <div id="container" class="row-fluid">
+        <div class="span12">
+            @{
+                Html.RenderPartial("WelcomeBrick");
+                foreach (var brickModel in @Model.Bricks)
+                {
+                    Html.RenderPartial("BrickContent", brickModel);
+                }
+            }
+            <!--/row-->
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+    
+    @{
+        Html.RenderPartial("~/Views/Account/LoginPartial.cshtml", new LoginModel());
+    }
+
+    
+}

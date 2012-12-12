@@ -1,0 +1,32 @@
+﻿@model ICollection<AuthenticationClientData>
+
+@using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="externalLogin-container">
+        <div class="inset">
+            <a class="fb login_button"> 
+                <div class="logo_wrapper">
+                    <span class="logo"></span>
+                </div>
+                <span>Facebook ile Giris Yap</span>
+            </a>
+        </div>
+        <div class="inset">
+            <a class="tw login_button">
+                <div class="logo_wrapper"><span class="logo"></span></div>
+                <span>Twitter ile Giris Yap</span>
+            </a>
+        </div>
+    </div>
+        
+@*<fieldset id="socialLoginList">
+            <p>
+                @foreach (AuthenticationClientData p in Model)
+                {
+                    <button type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account">@p.DisplayName</button>
+                }
+            </p>
+        </fieldset>*@
+}
