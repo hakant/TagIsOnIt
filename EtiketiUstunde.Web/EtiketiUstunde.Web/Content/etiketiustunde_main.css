@@ -3502,6 +3502,10 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
     padding: 13px;
 }
 
+.manual_login-section span {
+    font-size: 16px;
+}
+
 /* // - Login Page */
 /*************************/
 

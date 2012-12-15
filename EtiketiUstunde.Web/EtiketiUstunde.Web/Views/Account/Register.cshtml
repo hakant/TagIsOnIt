@@ -1,37 +1,47 @@
 ﻿@using EtiketiUstunde.Web.Models
 @model EtiketiUstunde.Web.Models.RegisterModel
 
-@section NavigationBar
+@section Header
 {
-    @{
-        Html.RenderPartial("NavigationBar", (NavigationBarModel)ViewBag.NavigationBarModel);
-    }
+    <script src="@Url.Content("~/Scripts/etiketiustunde.register.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('h1').on('click', function () {
+                document.location.href = '@Url.Action("Index", "Home")';
+            });
+        });
+    </script>
 }
+
 @section Body
 {
+    <div class="row">
+        <div class="span3 offset7">
+            <h1 class="clickable">Etiketi Ustunde</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span7 offset5">
+            <div class="span7 manual_login-section">
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary()
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-        <fieldset>
-            <legend>Registration Form</legend>
-            <ol>
-                <li>
-                    @Html.LabelFor(m => m.UserName)
-                    @Html.TextBoxFor(m => m.UserName)
-                </li>
-                <li>
-                    @Html.LabelFor(m => m.Password)
-                    @Html.PasswordFor(m => m.Password)
-                </li>
-                <li>
-                    @Html.LabelFor(m => m.ConfirmPassword)
-                    @Html.PasswordFor(m => m.ConfirmPassword)
-                </li>
-            </ol>
-            <input type="submit" value="Register" />
-        </fieldset>
-    }
+                    @Html.TextBoxFor(m => m.UserName, new {@placeholder = "kullanici adi"})
+
+                    @Html.PasswordFor(m => m.Password , new {@placeholder = "sifre"})
+
+                    @Html.PasswordFor(m => m.ConfirmPassword, new {@placeholder = "sifre tekrar"})
+
+                    
+                    <input type="submit" class="btn-success btn-large login_button_manual" value="Register" />
+                }
+
+            </div>
+            <div class="span7 login-validation-section">
+                @Html.ValidationSummary(true)
+            </div>
+        </div>
+    </div>
 }
