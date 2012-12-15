@@ -236,6 +236,7 @@
       <DependentUpon>bootstrap.js</DependentUpon>
     </Content>
     <Content Include="Scripts\etiketiustunde.login.js" />
+    <Content Include="Scripts\etiketiustunde.register.js" />
     <Content Include="Scripts\jquery-1.7.2.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js">
       <DependentUpon>jquery-1.7.2.js</DependentUpon>
