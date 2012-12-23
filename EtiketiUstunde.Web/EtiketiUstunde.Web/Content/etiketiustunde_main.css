@@ -3350,12 +3350,12 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
         -webkit-border-radius: 8px;
     }
 
-    .login_separator {
-        margin-top: 20px;
-        box-shadow: inset 0px 1px 0px rgba(50, 50, 50, 0.5);
-        -moz-box-shadow: inset 0px 1px 0px rgba(50,50,50,0.5);
-        -webkit-box-shadow: inset 0px 1px 0px rgba(50, 50, 50, 0.5);
-    }
+.login_separator {
+    margin-top: 20px;
+    box-shadow: inset 0px 1px 0px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow: inset 0px 1px 0px rgba(50,50,50,0.5);
+    -webkit-box-shadow: inset 0px 1px 0px rgba(50, 50, 50, 0.5);
+}
 
 .login_button {
     display: block;
@@ -3381,22 +3381,22 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
     margin-top: 20px;
 }
 
-    .login_button > span {
-        float: left;
-        min-height: 20px;
-        margin-top: 7px;
-        margin-left: 3px;
-        padding: 3px;
-        font-size: 14px;
-        font-weight: 500;
-        color: white;
-    }
+.login_button > span {
+    float: left;
+    min-height: 20px;
+    margin-top: 7px;
+    margin-left: 3px;
+    padding: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
 
-    .login_button .logo_wrapper {
-        float: left;
-        margin-top: 7px;
-        padding: 3px 12px;
-    }
+.login_button .logo_wrapper {
+    float: left;
+    margin-top: 7px;
+    padding: 3px 12px;
+}
 
 .tw {
     background: #32C1F0;
@@ -3493,21 +3493,21 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
     padding: 20px 85px;
 }
 
-.manual_login-section input[type="text"], .manual_login-section input[type="password"]{
-    margin-bottom: 15px;
-    display: block;
-    font-size: 18px;
-    width: 15em;
-    height: 1.0em;
-    padding: 13px;
-}
+    .manual_login-section input[type="text"], .manual_login-section input[type="password"] {
+        margin-bottom: 15px;
+        display: block;
+        font-size: 18px;
+        width: 15em;
+        height: 1.0em;
+        padding: 13px;
+    }
 
-.manual_login-section span {
-    font-size: 16px;
-}
+    .manual_login-section span {
+        font-size: 16px;
+    }
 
 .login-container {
-    margin: auto 240px auto 220px;
+    margin: 0 auto;
 }
 
 /* // - Login Page */

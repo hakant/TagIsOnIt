@@ -22,18 +22,18 @@
     
     <div class="modalCenter boxShade login-container">
         <div class="row">
-            <div class="span3 offset4">
+            <div class="span5 offset7">
                 <h1 class="clickable">Etiketi Ustunde</h1>
             </div>
         </div>
         <div class="row">
-            <div class="span7 offset2">
+            <div class="span7 offset5">
                 @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
             </div>
-            <div class="login_separator span7 offset2">
+            <div class="login_separator span7 offset5">
                 &nbsp;
             </div>
-            <div class="span7 offset2">
+            <div class="span7 offset5">
                 <div class="span7 manual_login-section">
 
                     @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
