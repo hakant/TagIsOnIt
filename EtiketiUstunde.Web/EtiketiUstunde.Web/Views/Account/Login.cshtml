@@ -10,7 +10,7 @@
                 document.location.href = '@Url.Action("Index", "Home")';
             });
 
-            $('.register_button').on('click', function() {
+            $('.register_button').on('click', function () {
                 document.location.href = '@Url.Action("Register", "Account")';
             });
         });
@@ -19,40 +19,41 @@
 
 @section Body
 {
-    <div class="row">
-        <div class="span3 offset7">
-            <h1 class="clickable">Etiketi Ustunde</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span7 offset5">
-            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-        </div>
-        <div class="login_separator span7 offset5">
-            &nbsp;
-        </div>
-        <div class="span7 offset5">
-            <div class="span7 manual_login-section">
-            
-                @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))  
-                {
-                    @Html.AntiForgeryToken()
-
-                    @Html.TextBoxFor(m => m.UserName, new {@placeholder = "kullanici adi"})
-                    @Html.PasswordFor(m => m.Password, new {@placeholder = "sifre"})
-
-                    <input type="submit" class="btn-success btn-large login_button_manual" value="Giris Yap" />
-                    <span>
-                        Hesabiniz yok mu? @Html.ActionLink("Kayit olabilirsiniz.", "Register")
-                    </span>
-                }
-            
-            </div>
-            <div class="span7 login-validation-section">
-                @Html.ValidationSummary(true)    
+    
+    <div class="modalCenter boxShade login-container">
+        <div class="row">
+            <div class="span3 offset4">
+                <h1 class="clickable">Etiketi Ustunde</h1>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="span7 offset2">
+                @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+            </div>
+            <div class="login_separator span7 offset2">
+                &nbsp;
+            </div>
+            <div class="span7 offset2">
+                <div class="span7 manual_login-section">
 
+                    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanici adi" })
+                        @Html.PasswordFor(m => m.Password, new { @placeholder = "sifre" })
+
+                        <input type="submit" class="btn-success btn-large login_button_manual" value="Giris Yap" />
+                        <span>Hesabiniz yok mu? @Html.ActionLink("Kayit olabilirsiniz.", "Register")
+                        </span>
+                    }
+
+                </div>
+                <div class="span7 login-validation-section">
+                    @Html.ValidationSummary(true)
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
