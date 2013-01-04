@@ -29,6 +29,12 @@ namespace EtiketiUstunde.Web.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult BootstrapTest()
+        {
+            return View();
+        }
+
         //
         // POST: /Account/Login
 

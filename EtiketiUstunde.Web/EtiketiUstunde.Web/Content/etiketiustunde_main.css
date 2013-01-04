@@ -1003,9 +1003,9 @@ a.darkgrey:hover {
 }
 
 .boxShade {
-    box-shadow: 0 0 7px #bbb;
-    -webkit-box-shadow: 0 0 7px #bbb;
-    -moz-box-shadow: 0 0 7px #bbb;
+    box-shadow: 0 0 10px #bbb;
+    -webkit-box-shadow: 0 0 10px #bbb;
+    -moz-box-shadow: 0 0 10px #bbb;
 }
 
 .minShade {

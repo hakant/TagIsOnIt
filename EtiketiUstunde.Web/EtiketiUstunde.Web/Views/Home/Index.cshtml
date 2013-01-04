@@ -9,25 +9,20 @@
 @section Header
 {
     <script type="text/javascript">
-        //var $container = $('#container');
-        //$container.imagesLoaded(function () {
-        //    $container.masonry({
-        //        itemSelector: '.box',
-        //        columnWidth: 240
-        //    });
-        //});
-
         $(function () {
-            $('#container').masonry({
-                // options
-                itemSelector: '.box',
-                columnWidth: 230,
-                isAnimated: true,
-                animationOptions: {
-                    duration: 250,
-                    easing: 'linear',
-                    queue: false
-                }
+            var $container = $('#container');
+            $container.imagesLoaded(function() {
+                $container.masonry({
+                    // options
+                    itemSelector: '.box',
+                    columnWidth: 230,
+                    isAnimated: true,
+                    animationOptions: {
+                        duration: 250,
+                        easing: 'linear',
+                        queue: false
+                    }
+                });
             });
         });
     </script>
