@@ -5,7 +5,6 @@
 
 html {
     font-size: 100%;
-    overflow-y: scroll;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     height: 100%;
@@ -1003,9 +1002,9 @@ a.darkgrey:hover {
 }
 
 .boxShade {
-    box-shadow: 0 0 10px #bbb;
-    -webkit-box-shadow: 0 0 10px #bbb;
-    -moz-box-shadow: 0 0 10px #bbb;
+    box-shadow: 0 0 15px #bbb;
+    -webkit-box-shadow: 0 0 15px #bbb;
+    -moz-box-shadow: 0 0 15px #bbb;
 }
 
 .minShade {
@@ -3323,15 +3322,28 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
     }
 
 .euNavBar {
-    min-width: 820px;
+    min-width: 900px;
 }
 
 /*************************/
 /* Login Page */
 
+.login-title h1 {
+     margin: 96px 0 0;
+ }
+
+ .login-title span {
+     display: block;
+     margin: 0 auto 50px;
+     width: 200px;
+     height: 40px;
+ }
+
 .externalLogin-container {
-    margin-top: 50px;
-    margin-left: 30px;
+    display: block;
+    margin: auto auto 50px;
+    width: 500px;
+    height: 50px;
 }
 
     .externalLogin-container .inset:first-child {
@@ -3349,54 +3361,6 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
         -moz-border-radius: 8px;
         -webkit-border-radius: 8px;
     }
-
-.login_separator {
-    margin-top: 20px;
-    box-shadow: inset 0px 1px 0px rgba(50, 50, 50, 0.5);
-    -moz-box-shadow: inset 0px 1px 0px rgba(50,50,50,0.5);
-    -webkit-box-shadow: inset 0px 1px 0px rgba(50, 50, 50, 0.5);
-}
-
-.login_button {
-    display: block;
-    min-width: 200px;
-    height: 37px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    -webkit-user-select: none;
-    cursor: pointer;
-}
-
-.login_button_manual {
-    display: inline;
-    margin-right: 10px;
-}
-
-.login-validation-section {
-    margin-top: 20px;
-}
-
-.login_button > span {
-    float: left;
-    min-height: 20px;
-    margin-top: 7px;
-    margin-left: 3px;
-    padding: 3px;
-    font-size: 14px;
-    font-weight: 500;
-    color: white;
-}
-
-.login_button .logo_wrapper {
-    float: left;
-    margin-top: 7px;
-    padding: 3px 12px;
-}
 
 .tw {
     background: #32C1F0;
@@ -3490,7 +3454,8 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
 }
 
 .manual_login-section {
-    padding: 20px 85px;
+    width: 320px;
+    margin: 30px auto 50px auto;
 }
 
     .manual_login-section input[type="text"], .manual_login-section input[type="password"] {
@@ -3506,8 +3471,45 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
         font-size: 16px;
     }
 
-.login-container {
-    margin: 0 auto;
+.login_button {
+    display: block;
+    min-width: 200px;
+    height: 37px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+.login_button_manual {
+    display: inline;
+    margin-right: 10px;
+}
+
+.login-validation-section {
+    margin-top: 20px;
+}
+
+.login_button > span {
+    float: left;
+    min-height: 20px;
+    margin-top: 7px;
+    margin-left: 3px;
+    padding: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+.login_button .logo_wrapper {
+    float: left;
+    margin-top: 7px;
+    padding: 3px 12px;
 }
 
 /* // - Login Page */

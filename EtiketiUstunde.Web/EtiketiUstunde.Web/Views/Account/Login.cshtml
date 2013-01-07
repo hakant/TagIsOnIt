@@ -19,37 +19,29 @@
 
 @section Body
 {
+        <div class="boxShade">
+            <div class="login-title">
+                <h1><span class="clickable">Etiketi Ustunde</span></h1>
+            </div>
 
-    <div class="boxShade row-fluid" style="margin-top: 5%">
-        <div style="left: 42%">
-            <h1 class="clickable">Etiketi Ustunde</h1>
+            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+
+            <div class="manual_login-section">
+                @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanici adi" })
+                    @Html.PasswordFor(m => m.Password, new { @placeholder = "sifre" })
+
+                    <input type="submit" class="btn-success btn-large login_button_manual" value="Giris Yap" />
+                    <span>Hesabiniz yok mu? @Html.ActionLink("Kayit olabilirsiniz.", "Register")
+                    </span>
+                }
+            </div>
+            <div class="login-validation-section">
+                @Html.ValidationSummary(true)
+            </div>
         </div>
-        <div class="span12">
-            <div class="row-fluid">
-                <div style="left: 28%">
-                    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-                </div>
-            </div>
-
-            <div class="row-fluid" style="margin-top: 2%">
-                <div class="manual_login-section" style="left: 30%">
-                    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
-                    {
-                        @Html.AntiForgeryToken()
-
-                        @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanici adi" })
-                        @Html.PasswordFor(m => m.Password, new { @placeholder = "sifre" })
-
-                        <input type="submit" class="btn-success btn-large login_button_manual" value="Giris Yap" />
-                        <span>Hesabiniz yok mu? @Html.ActionLink("Kayit olabilirsiniz.", "Register")
-                        </span>
-                    }
-                </div>
-                <div class="login-validation-section">
-                    @Html.ValidationSummary(true)
-                </div>
-            </div>
-    </div>
-</div>
 }
 
