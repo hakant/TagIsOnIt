@@ -831,7 +831,7 @@ div.limit, footer > div, #topbar {
 
             #loginMenu li a:hover {
                 text-decoration: none;
-                background: #f5f5f5;
+                background: #f3f3f3;
             }
 
     #loginMenu .first {
@@ -2152,7 +2152,7 @@ a.tag.active {
 }
 
 .solid {
-    background-color: #F5F5F5;
+    background-color: #f3f3f3;
 }
 
 .smooth {
@@ -2523,11 +2523,11 @@ input.disabled {
 }
 
 .modalCenter {
-    background: #f5f5f5;
+    background: #f3f3f3;
     display: inline-block;
     text-align: left;
     min-width: 450px;
-    border: 1px solid #f5f5f5;
+    border: 1px solid #f3f3f3;
     padding: 63px 30px 30px;
 }
 
@@ -2543,7 +2543,7 @@ input.disabled {
     }
 
         .modalCenter li.active, #navigator li.active, .staticWrap li.active {
-            background: #f5f5f5;
+            background: #f3f3f3;
         }
 
     .modalCenter h1.warning, .staticWrap h1.warning {
@@ -2974,7 +2974,7 @@ input[type=submit].biton {
 .biton.white, a.biton.white {
     color: #666;
     border: 1px #e5e5e5 solid;
-    background: #F5F5F5 url(http://img.feedfloyd.com/isc.png) repeat-x 0 -1755px;
+    background: #f3f3f3 url(http://img.feedfloyd.com/isc.png) repeat-x 0 -1755px;
 }
 
     .biton.white:hover, a.biton.white:hover {
@@ -3240,7 +3240,7 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
 }
 
 .wrp, .wrp2 {
-    background: #f5f5f5;
+    background: #f3f3f3;
     padding: 10px;
 }
 
@@ -3328,9 +3328,9 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
 /*************************/
 /* Login Page */
 
-.login-title h1 {
-     margin: 96px 0 0;
- }
+.login-title {
+    /*padding-top: 20px;*/
+}
 
  .login-title span {
      display: block;
@@ -3511,6 +3511,21 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
     margin-top: 7px;
     padding: 3px 12px;
 }
+
+.login-container.boxShade {
+    padding: 30px 0 10px;
+}
+
+.manual_login-section span:last-child {
+    position: absolute;
+    width: 400px;
+    margin-top: 13px;
+}
+
+.login-actions {
+    margin-top: 30px;
+}
+
 
 /* // - Login Page */
 /*************************/

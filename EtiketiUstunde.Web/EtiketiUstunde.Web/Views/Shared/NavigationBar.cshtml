@@ -3,11 +3,11 @@
 <div class="navbar navbar-fixed-top euNavBar">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="brand" href="#">Etiketi Ustunde</a>
+            <a class="brand" href="#">Etiketi Üstünde</a>
             <div>
                 <ul class="nav pull-right">
-                    <li><a href="@Url.Action("Login", "Account")" data-toggle="modal">Giris yap</a></li>
-                    <li><a href="#">Hesap Ac</a></li>
+                    <li><a href="@Url.Action("Login", "Account")" data-toggle="modal">Giriş yap</a></li>
+                    <li><a href="#">Hesap Aç</a></li>
                 </ul>
             </div>
             <ul class="nav">
@@ -15,16 +15,16 @@
                 @{
                     Html.RenderPartial("CategoryMenu", Model.Divisions);
                 }
-                <li><a href="#">Populer</a></li>
+                <li><a href="#">Popüler</a></li>
                 <li><a href="#">Blog</a></li>
                 <li class="divider-vertical"></li>
                 <li class="divider-vertical"></li>
             </ul>
             <div class="pull-left">
-                <a class="btn btn-success" href="#"><i class="icon-plus-sign icon-white" style="margin-top: 2px"></i>Kiyafet Ekle</a>
+                <a class="btn btn-success" href="#"><i class="icon-plus-sign icon-white" style="margin-right: 5px"></i>Kıyafet Ekle</a>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="#"><i class="icon-search icon-white" style="margin-top: 2px"></i>Arama Yap</a>
+                <a class="btn btn-primary" href="#"><i class="icon-search icon-white" style="margin-right: 5px"></i>Arama Yap</a>
             </div>
         </div>
     </div>

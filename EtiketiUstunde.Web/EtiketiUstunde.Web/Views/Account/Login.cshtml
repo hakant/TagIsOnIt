@@ -6,7 +6,7 @@
     <script src="@Url.Content("~/Scripts/etiketiustunde.login.js")"></script>
     <script type="text/javascript">
         $(function () {
-            $('h1').on('click', function () {
+            $('h1 span').on('click', function () {
                 document.location.href = '@Url.Action("Index", "Home")';
             });
 
@@ -19,9 +19,9 @@
 
 @section Body
 {
-        <div class="boxShade">
+        <div class="boxShade login-container">
             <div class="login-title">
-                <h1><span class="clickable">Etiketi Ustunde</span></h1>
+                <h1><span class="clickable">Etiketi Üstünde</span></h1>
             </div>
 
             @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
@@ -31,12 +31,13 @@
                 {
                     @Html.AntiForgeryToken()
 
-                    @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanici adi" })
-                    @Html.PasswordFor(m => m.Password, new { @placeholder = "sifre" })
+                    @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanıcı adı" })
+                    @Html.PasswordFor(m => m.Password, new { @placeholder = "şifre" })
 
-                    <input type="submit" class="btn-success btn-large login_button_manual" value="Giris Yap" />
-                    <span>Hesabiniz yok mu? @Html.ActionLink("Kayit olabilirsiniz.", "Register")
-                    </span>
+                    <div class="login-actions">
+                        <input type="submit" class="btn btn-large login_button_manual" value="Giriş Yap" />
+                        <span>Hesabınız yok mu? @Html.ActionLink("Kayıt olabilirsiniz.", "Register")</span>
+                    </div>
                 }
             </div>
             <div class="login-validation-section">
