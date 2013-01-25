@@ -48,7 +48,7 @@ namespace EtiketiUstunde.Web.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("", "Kullanıcı adınızı ya da şifrenizi yanlış girmiş olabilir misiniz?");
             return View(model);
         }
 

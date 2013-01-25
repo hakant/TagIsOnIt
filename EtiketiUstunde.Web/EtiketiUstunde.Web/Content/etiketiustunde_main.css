@@ -237,16 +237,6 @@ header {
         color: #999;
     }
 
-footer {
-    height: 46px;
-    background: #FFF url(http://img.feedfloyd.com/isc.png) repeat-x 0 -1098px;
-    border-top: 1px #ddd solid;
-    line-height: 46px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-
 #main, #mainFull, #contentWrapper {
     width: 980px;
     margin: 0 auto;
@@ -3326,6 +3316,28 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
 }
 
 /*************************/
+/* Validation */
+
+input.input-validation-error {
+    color: #b94a48;
+    border-color: #ee5f5b;
+}
+
+input.input-validation-error:focus {
+    color: #b94a48;
+    border-color: #ee5f5b;
+}
+
+.validation-summary-errors * {
+    color: #b94a48;
+    list-style-type: none;
+
+}
+
+/* // - Validation */
+/*************************/
+
+/*************************/
 /* Login Page */
 
 .login-title {
@@ -3492,7 +3504,10 @@ input, textarea, select, .darkgrey, a.darkgrey, a.lightgrey:hover, #wallList li:
 }
 
 .login-validation-section {
-    margin-top: 20px;
+    width: 500px;
+    max-width: 750px;
+    margin: 30px auto 50px auto;
+    font-size: 14pt;
 }
 
 .login_button > span {

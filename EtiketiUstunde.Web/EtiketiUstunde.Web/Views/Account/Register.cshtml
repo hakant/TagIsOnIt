@@ -3,11 +3,15 @@
 
 @section Header
 {
-    <script src="@Url.Content("~/Scripts/etiketiustunde.register.js")"></script>
+    <script src="@Url.Content("~/Scripts/etiketiustunde.login.js")"></script>
     <script type="text/javascript">
         $(function () {
-            $('h1').on('click', function () {
+            $('h1 span').on('click', function () {
                 document.location.href = '@Url.Action("Index", "Home")';
+            });
+
+            $('.register_button').on('click', function () {
+                document.location.href = '@Url.Action("Login", "Account")';
             });
         });
     </script>
@@ -15,33 +19,31 @@
 
 @section Body
 {
-    <div class="row">
-        <div class="span3 offset7">
-            <h1 class="clickable">Etiketi Ustunde</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span7 offset5">
-            <div class="span7 manual_login-section">
+        <div class="boxShade login-container">
+            <div class="login-title">
+                <h1><span class="clickable">Etiketi Üstünde</span></h1>
+            </div>
 
-                @using (Html.BeginForm())
+            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+
+            <div class="manual_login-section">
+                @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
                 {
                     @Html.AntiForgeryToken()
 
-                    @Html.TextBoxFor(m => m.UserName, new {@placeholder = "kullanici adi"})
+                    @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanıcı adı" })
+                    @Html.PasswordFor(m => m.Password, new { @placeholder = "şifre" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new {@placeholder = "şifre tekrar"})
 
-                    @Html.PasswordFor(m => m.Password , new {@placeholder = "sifre"})
-
-                    @Html.PasswordFor(m => m.ConfirmPassword, new {@placeholder = "sifre tekrar"})
-
-                    
-                    <input type="submit" class="btn-success btn-large login_button_manual" value="Register" />
+                    <div class="login-actions">
+                        <input type="submit" class="btn btn-large login_button_manual" value="Kayıt Ol" />
+                        <span>Zaten hesabınız mı var? @Html.ActionLink("Giriş yapabilirsiniz", "Login")</span>
+                    </div>
                 }
-
             </div>
-            <div class="span7 login-validation-section">
+            <div class="login-validation-section">
                 @Html.ValidationSummary(true)
             </div>
         </div>
-    </div>
 }
+
