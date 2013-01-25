@@ -26,12 +26,9 @@ namespace EtiketiUstunde.Web.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
+            if (Request.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
 
-        [AllowAnonymous]
-        public ActionResult BootstrapTest()
-        {
             return View();
         }
 
@@ -70,6 +67,9 @@ namespace EtiketiUstunde.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            if (Request.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+
             return View();
         }
 
