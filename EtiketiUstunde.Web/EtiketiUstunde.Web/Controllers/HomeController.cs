@@ -26,6 +26,7 @@ namespace EtiketiUstunde.Web.Controllers
 
             return View(new HomeModel
             {
+                IsLoggedInUser = Request.IsAuthenticated,
                 Bricks = brickList
             });
         }

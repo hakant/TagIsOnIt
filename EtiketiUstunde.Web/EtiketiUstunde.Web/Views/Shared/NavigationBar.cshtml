@@ -3,12 +3,21 @@
 <div class="navbar navbar-fixed-top euNavBar">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="brand" href="#">Etiketi Üstünde</a>
+            <a class="brand" href="@Url.Action("Index", "Home")">Etiketi Üstünde</a>
             <div>
-                <ul class="nav pull-right">
-                    <li><a href="@Url.Action("Login", "Account")" data-toggle="modal">Giriş yap</a></li>
-                    <li><a href="@Url.Action("Register", "Account")">Hesap Aç</a></li>
-                </ul>
+                @{
+                    if (!Model.IsLoggedInUser)
+                    {
+                        <ul class="nav pull-right">
+                            <li><a href="@Url.Action("Login", "Account")" data-toggle="modal">Giriş yap</a></li>
+                            <li><a href="@Url.Action("Register", "Account")">Hesap Aç</a></li>
+                        </ul>
+                    }
+                    else
+                    {   
+                        Html.RenderPartial("NavigationUserSection", Model.User);
+                    }
+                }
             </div>
             <ul class="nav">
                 <li class="active dropdown">

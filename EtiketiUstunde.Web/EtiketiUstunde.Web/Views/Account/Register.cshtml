@@ -31,10 +31,15 @@
                 {
                     @Html.AntiForgeryToken()
 
-                    @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanıcı adı" })
-                    @Html.PasswordFor(m => m.Password, new { @placeholder = "şifre" })
-                    @Html.PasswordFor(m => m.ConfirmPassword, new {@placeholder = "şifre tekrar"})
-
+                    <div class="section">
+                        @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanıcı adı" })
+                        @Html.PasswordFor(m => m.Password, new { @placeholder = "şifre" })
+                        @Html.PasswordFor(m => m.ConfirmPassword, new {@placeholder = "şifre tekrar"})
+                    </div>
+                    <div class="section">
+                        @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "isim" })
+                        @Html.TextBoxFor(m => m.LastName, new {@placeholder = "soyisim"})
+                    </div>
                     <div class="login-actions">
                         <input type="submit" class="btn btn-large login_button_manual" value="Kayıt Ol" />
                         <span>Zaten hesabınız mı var? @Html.ActionLink("Giriş yapabilirsiniz", "Login")</span>

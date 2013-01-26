@@ -49,7 +49,18 @@ namespace EtiketiUstunde.Web.Models
     {
         [Required]
         [Display(Name = "User name")]
+        [MaxLength(50)]
         public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "First name")]
+        [MaxLength(50)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        [MaxLength(50)]
+        public string LastName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

@@ -9,7 +9,15 @@ namespace EtiketiUstunde.Data.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
+
+        [MaxLength(50)]
         public string UserName { get; set; }
+
+        [MaxLength(50)]
+        public string FirstName { get; set; }
+
+        [MaxLength(50)]
+        public string LastName { get; set; }
     }
 }
 

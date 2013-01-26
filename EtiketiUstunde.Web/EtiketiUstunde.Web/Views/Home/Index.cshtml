@@ -39,7 +39,11 @@
     <div id="container" class="row">
         <div class="span12">
             @{
-                Html.RenderPartial("WelcomeBrick");
+                if (!Model.IsLoggedInUser)
+                {
+                    Html.RenderPartial("WelcomeBrick");   
+                }
+                    
                 foreach (var brickModel in @Model.Bricks)
                 {
                     Html.RenderPartial("BrickContent", brickModel);

@@ -1,0 +1,30 @@
+﻿@using EtiketiUstunde.Web.Models
+@model EtiketiUstunde.Web.Models.UserModel
+
+<script type="text/javascript">
+    $(function () {
+        $(".sign-out").click(function() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("LogOff", "Account")',
+                data: '@Html.AntiForgeryToken()',
+                success: function() {
+                    window.location = '@Url.Action("Index", "Home")';    
+                }
+            });
+        });
+    });
+</script>
+
+<ul class="nav pull-right">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Model.FullName</a>
+        <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Manage", "Account")">Hesap Detayları</a></li>
+            <li class="divider"></li>
+            <li>
+                <a href="#" class="sign-out">Çıkış</a>
+            </li>
+        </ul>
+    </li>
+</ul>

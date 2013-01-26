@@ -167,6 +167,7 @@
     <Compile Include="Models\DivisionModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\NavigationBarModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Content\images\eu_sprite_grid.png" />
     <Content Include="Content\images\login_icons.png" />
@@ -285,6 +286,7 @@
     <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\NavigationUserSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EtiketiUstunde.Data\EtiketiUstunde.Data.csproj">

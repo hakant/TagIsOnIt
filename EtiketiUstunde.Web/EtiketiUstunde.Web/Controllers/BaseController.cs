@@ -32,6 +32,13 @@ namespace EtiketiUstunde.Web.Controllers
 
             return new NavigationBarModel()
                 {
+                    IsLoggedInUser = Request.IsAuthenticated,
+                    User = new UserModel()
+                        {
+                            FirstName = "Hakan",
+                            LastName = "Tuncer",
+                            UserName = "hakant"
+                        },
                     Divisions = divisionList
                 };
         }

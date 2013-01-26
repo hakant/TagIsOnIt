@@ -53,7 +53,6 @@ namespace EtiketiUstunde.Web.Controllers
         // POST: /Account/LogOff
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             WebSecurity.Logout();
@@ -86,8 +85,11 @@ namespace EtiketiUstunde.Web.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password,
+                                                     new {model.FirstName, model.LastName});
+
                     WebSecurity.Login(model.UserName, model.Password);
+
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
