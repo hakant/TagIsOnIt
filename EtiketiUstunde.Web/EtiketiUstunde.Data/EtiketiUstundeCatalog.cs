@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Linq;
 using EtiketiUstunde.Data.Model;
 
 namespace EtiketiUstunde.Data
@@ -45,5 +46,13 @@ namespace EtiketiUstunde.Data
         {
             get { return _context.Divisions.Include(x => x.Categories); }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IQueryable<UserProfile> UserProfiles
+        {
+            get { return _context.UserProfiles; }
+        } 
     }
 }

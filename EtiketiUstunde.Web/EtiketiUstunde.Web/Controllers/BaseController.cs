@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using AutoMapper;
 using EtiketiUstunde.Data;
 using EtiketiUstunde.Web.Models;
+using Microsoft.Web.WebPages.OAuth;
+using WebMatrix.WebData;
 
 namespace EtiketiUstunde.Web.Controllers
 {
@@ -30,17 +32,30 @@ namespace EtiketiUstunde.Web.Controllers
                 divisionList.Add(divisionModel);
             }
 
-            return new NavigationBarModel()
+            var navigationBarModel = new NavigationBarModel()
                 {
                     IsLoggedInUser = Request.IsAuthenticated,
-                    User = new UserModel()
-                        {
-                            FirstName = "Hakan",
-                            LastName = "Tuncer",
-                            UserName = "hakant"
-                        },
                     Divisions = divisionList
                 };
+
+            if (Request.IsAuthenticated)
+            {
+                var currentUserId = (WebSecurity.GetUserId(User.Identity.Name));
+                
+                var currentUser = catalog.UserProfiles.FirstOrDefault(x => x.UserId == currentUserId);
+
+                if (currentUser != null)
+                {
+                    navigationBarModel.User = new UserModel
+                        {
+                            UserName = currentUser.UserName,
+                            FirstName = currentUser.FirstName,
+                            LastName = currentUser.LastName
+                        };
+                }
+            }
+
+            return navigationBarModel;
         }
     }
 }
