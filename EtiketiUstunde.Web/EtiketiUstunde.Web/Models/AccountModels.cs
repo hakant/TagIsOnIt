@@ -8,6 +8,16 @@ namespace EtiketiUstunde.Web.Models
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
+        [Required]
+        [Display(Name = "First name")]
+        [MaxLength(50)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        [MaxLength(50)]
+        public string LastName { get; set; }
+
         public string ExternalLoginData { get; set; }
     }
 

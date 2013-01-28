@@ -243,14 +243,28 @@ namespace EtiketiUstunde.Web.Controllers
                 OAuthWebSecurity.CreateOrUpdateAccount(result.Provider, result.ProviderUserId, User.Identity.Name);
                 return RedirectToLocal(returnUrl);
             }
-            else
+
+
+            // User is new, ask for their desired membership name
+            var loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
+            ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
+            ViewBag.ReturnUrl = returnUrl;
+
+            var registerExternalModel = new RegisterExternalLoginModel
+                {
+                    UserName = result.UserName,
+                    ExternalLoginData = loginData
+                };
+
+            if (result.ExtraData.ContainsKey("name") && !string.IsNullOrEmpty(result.ExtraData["name"]))
             {
-                // User is new, ask for their desired membership name
-                string loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
-                ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
-                ViewBag.ReturnUrl = returnUrl;
-                return View("ExternalLoginConfirmation", new RegisterExternalLoginModel { UserName = result.UserName, ExternalLoginData = loginData });
+                var fullName = result.ExtraData["name"].Split(' ');
+                registerExternalModel.FirstName = fullName[0];
+                registerExternalModel.LastName = fullName[fullName.Count() - 1];
             }
+                
+
+            return View("ExternalLoginConfirmation", registerExternalModel);
         }
 
         //
@@ -279,7 +293,7 @@ namespace EtiketiUstunde.Web.Controllers
                     if (user == null)
                     {
                         // Insert name into the profile table
-                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
+                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName, FirstName = model.FirstName, LastName = model.LastName});
                         db.SaveChanges();
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);

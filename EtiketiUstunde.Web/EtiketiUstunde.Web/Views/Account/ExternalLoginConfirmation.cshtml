@@ -1,38 +1,58 @@
 ﻿@using EtiketiUstunde.Web.Models
 @model EtiketiUstunde.Web.Models.RegisterExternalLoginModel
-@section NavigationBar
+
+@section Header
 {
-    @{
-        Html.RenderPartial("NavigationBar", (NavigationBarModel)ViewBag.NavigationBarModel);
-    }
+    <script src="@Url.Content("~/Scripts/etiketiustunde.register.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('h1 span').on('click', function () {
+                document.location.href = '@Url.Action("Index", "Home")';
+            });
+
+            $('.register_button').on('click', function () {
+                document.location.href = '@Url.Action("Login", "Account")';
+            });
+        });
+    </script>
 }
+
 @section Body
 {
-    <hgroup class="title">
-        <h2>Associate your @ViewBag.ProviderDisplayName account.</h2>`
-    </hgroup>
+        <div class="boxShade login-container">
+            <div class="login-title">
+                <h1><span class="clickable">Etiketi Üstünde</span></h1>
+            </div>
+            <div class="login-external-subtitle">
+                <h3>Etiketi Üstünde hesabınızı @ViewBag.ProviderDisplayName hesabınıza baglayın...</h3>
+            </div>
+            <div class="login-external-description">
+                <p>
+                    <strong>@ViewBag.ProviderDisplayName</strong> hesabınızı kullanarak başarıyla giriş yaptınız.
+                        Lutfen kullanıcı adınız, isim ve soyadınızı kontrol ederek Onayla butonunu tıklayınız.
+                        Eger aşağıdaki bolumlerden bazıları otomatik olarak dolmadıysa, bu seferlik doldurmanızı rica ediyoruz.
+                </p>
+            </div>
+            <div class="manual_login-section">
+                @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new {ReturnUrl = ViewBag.ReturnUrl}))
+                {
+                    @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new {ReturnUrl = ViewBag.ReturnUrl}))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-
-        <fieldset>
-            <legend>Association Form</legend>
-            <p>
-                You've successfully authenticated with <strong>@ViewBag.ProviderDisplayName</strong>.
-                Please enter a user name for this site below and click the Confirm button to finish
-                logging in.
-            </p>
-            <ol>
-                <li class="name">
-                    @Html.LabelFor(m => m.UserName)
-                    @Html.TextBoxFor(m => m.UserName)
-                    @Html.ValidationMessageFor(m => m.UserName)
-                </li>
-            </ol>
-            @Html.HiddenFor(m => m.ExternalLoginData)
-            <input type="submit" value="Register" />
-        </fieldset>
-    }
+                    <div class="section">
+                        @Html.TextBoxFor(m => m.UserName, new { @placeholder = "kullanıcı adı" })
+                    </div>
+                    <div class="section">
+                        @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "isim" })
+                        @Html.TextBoxFor(m => m.LastName, new { @placeholder = "soyisim" })
+                    </div>
+                    <div class="login-actions">
+                        @Html.HiddenFor(m => m.ExternalLoginData)
+                        <input type="submit" class="btn btn-large" value="Onayla" />
+                    </div>
+                }
+            </div>
+            <div class="login-validation-section">
+                @Html.ValidationSummary(true)
+            </div>
+        </div>
 }

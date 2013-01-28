@@ -3348,16 +3348,28 @@ input.input-validation-error:focus {
 /*************************/
 /* Login Page */
 
-.login-title {
-    /*padding-top: 20px;*/
-}
 
- .login-title span {
+.login-title span {
      display: block;
      margin: 0 auto 50px;
      width: 200px;
      height: 40px;
  }
+
+.login-external-subtitle h3{
+     display: block;
+     margin: 0 auto 20px;
+     width: 500px;
+     height: 40px;
+ }
+
+.login-external-description {
+    display: block;
+     margin: 0 auto 70px;
+     width: 510px;
+     height: 40px;
+    text-align: justify;
+}
 
 .externalLogin-container {
     display: block;
@@ -3475,7 +3487,7 @@ input.input-validation-error:focus {
 
 .manual_login-section {
     width: 320px;
-    margin: 30px auto 50px auto;
+    margin: 60px auto 50px auto;
 }
 
     .manual_login-section input[type="text"], .manual_login-section input[type="password"] {
